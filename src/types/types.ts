@@ -2,20 +2,22 @@ export interface Player {
   id: string;
   name: string;
   score: number;
-  currentSelectedPair: CardPair | null;
 }
 
-export interface IGameBoard {
-  players: Player[];
-  Board: number[];
-  shuffleBoard(): void;
+export interface CardType {
+  id: string;
+  value: number;
+  isFlipped: boolean;
+  isMatched: boolean;
 }
 
-export interface CardPair {
-  pair: Card[];
+export interface CardProps {
+  card: CardType;
+  onCardClick: (cardId: string) => void;
+  disabled: boolean;
 }
 
-export interface Card {
-  cardId: number;
-  src: string;
+export interface PlayerCardProps {
+  player: Player;
+  active: boolean;
 }
